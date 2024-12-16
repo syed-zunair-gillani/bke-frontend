@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --blue-glow: 0 0 20px rgba(59, 130, 246, 0.4);
+  --depth-shadow-1: 0 8px 12px -1px rgba(0, 0, 0, 0.7), 0 4px 8px -1px rgba(0, 0, 0, 0.2);
+  --depth-shadow-2: 0 15px 25px -3px rgba(0, 0, 0, 0.7), 0 8px 12px -2px rgba(0, 0, 0, 0.2);
+  --depth-shadow-3: 0 25px 35px -5px rgba(0, 0, 0, 0.7), 0 15px 20px -5px rgba(0, 0, 0, 0.2);
+}
+
+body {
+  min-height: 100vh;
+  background-color: #0c0e14;
+  color: #e5e7eb;
+}
+
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-blue-700;
+}
+
+.card {
+  @apply bg-[#1a1d25]/90 backdrop-blur-lg rounded-xl p-6 border border-gray-800/50 transition-all duration-500;
+  box-shadow: 
+    var(--depth-shadow-1),
+    0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.card:hover {
+  @apply border-blue-600/50;
+  box-shadow: 
+    var(--depth-shadow-2),
+    0 0 30px rgba(59, 130, 246, 0.3),
+    0 0 15px rgba(0, 0, 0, 0.4);
+  transform: translateY(-5px) translateZ(0);
+}
+
+.section-padding {
+  @apply py-16 md:py-24;
+}
+
+.gradient-section-1 {
+  background: 
+    radial-gradient(circle at top left, rgba(29, 78, 216, 0.15), transparent 60%),
+    radial-gradient(circle at bottom right, rgba(30, 64, 175, 0.15), transparent 60%),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.2), rgba(15, 23, 42, 0.3));
+}
+
+.gradient-section-2 {
+  background: 
+    radial-gradient(circle at top right, rgba(59, 130, 246, 0.15), transparent 60%),
+    radial-gradient(circle at bottom left, rgba(37, 99, 235, 0.15), transparent 60%),
+    linear-gradient(to bottom, rgba(17, 24, 39, 0.2), rgba(17, 24, 39, 0.3));
+}
+
+.gradient-section-3 {
+  background: 
+    radial-gradient(ellipse at top center, rgba(29, 78, 216, 0.15), transparent 70%),
+    radial-gradient(ellipse at bottom center, rgba(30, 64, 175, 0.15), transparent 70%),
+    linear-gradient(to bottom, rgba(17, 24, 39, 0.2), rgba(17, 24, 39, 0.3));
+}
+
+.gradient-section-4 {
+  background: 
+    conic-gradient(
+      from 45deg at 50% 50%,
+      rgba(59, 130, 246, 0.15) 0deg,
+      rgba(37, 99, 235, 0.15) 90deg,
+      rgba(29, 78, 216, 0.15) 180deg,
+      rgba(30, 64, 175, 0.15) 270deg,
+      rgba(59, 130, 246, 0.15) 360deg
+    ),
+    linear-gradient(to bottom, rgba(17, 24, 39, 0.2), rgba(17, 24, 39, 0.3));
+}
+
+.services_content h1{
+  color: #3b82f6;
+  font-weight: 600;
+  font-size: 2rem;
+  margin: 10px 0;
+}
+.services_content h2{
+  color: #3b82f6;
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin: 10px 0;
+}
+
+.services_content h3{
+  color: #3b82f6;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin: 10px 0;
+}
+
+.services_content h4, .services_content h5, .services_content h6{
+  color: #3b82f6;
+  font-weight: 700;
+  font-size: 1rem;
+  margin: 10px 0;
+}
+.services_content strong{
+  font-weight: 700 ;
+}
+.services_content p{
+  margin-bottom: 10px;
+}
+
+.services_content ul{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  list-style: disc;
+  padding-left: 1.2rem;
+}
+.services_content ul li{
+  margin: 4px 0;
+}
+.services_content ul li::marker {
+  color: #3b82f6;
+}
+.services_content.pp ul{
+  grid-template-columns: 1fr !important;
+}
