@@ -59,7 +59,7 @@ export const structure: StructureResolver = (S) =>
             .documentId('logo') // Ensure a single 'contact' document
       ),
       // Include other documents (exclude these to prevent listing them twice)
-      ...S.documentTypeListItems().filter(item =>
+      ...S.documentTypeListItems().filter((item:any) =>
         !["home", "about", "terms", "privacy","footer", "logo"].includes(item.getId())
       ),
     ]);
