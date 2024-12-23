@@ -94,7 +94,7 @@ export default function HomeModule({ data }: any) {
                     height={48}
                   />
                   <h3 className="text-xl font-semibold mb-3 mt-3">
-                    {item?.title} 1111
+                    {item?.title}
                   </h3>
                   <p className="text-gray-400">{item?.info}</p>
                 </motion.div>

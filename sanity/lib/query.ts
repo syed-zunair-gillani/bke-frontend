@@ -50,6 +50,12 @@ export const Qfooter = `*[_type == "footer"]{
     copyright_text
 }`
 
+export const Qcontact = `*[_type == "contact"]{
+  right_nav,
+   copyright_links,
+   copyright_text
+}`
+
 export const QAbout = `*[_type == "about"]`
 export const QPrivacy = `*[_type == "privacy"]`
 export const QTerms = `*[_type == "terms"]`

@@ -58,8 +58,16 @@ export const structure: StructureResolver = (S) =>
             .schemaType('logo')
             .documentId('logo') // Ensure a single 'contact' document
       ),
+      S.listItem()
+      .title('Contact')
+      .schemaType('contact')
+      .child(
+        S.document()
+          .schemaType('contact')
+          .documentId('contact') // Ensure a single 'contact' document
+    ),
       // Include other documents (exclude these to prevent listing them twice)
       ...S.documentTypeListItems().filter((item:any) =>
-        !["home", "about", "terms", "privacy","footer", "logo"].includes(item.getId())
+        !["home", "about", "terms", "privacy","footer", "logo", "contact"].includes(item.getId())
       ),
     ]);

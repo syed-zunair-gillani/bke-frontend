@@ -6,7 +6,6 @@ import Link from "next/link";
 import { useSite } from "@/app/config/hooks/useSite";
 
 export default function Logo({ data }: any) {
-  console.log("🚀 ~ Logo ~ data:", data);
   const { branding } = useSite();
   const { logo } = branding;
 
@@ -28,7 +27,7 @@ export default function Logo({ data }: any) {
             alt={logo.alt}
             width={logo.width}
             height={logo.height}
-            className="object-contain"
+            className="object-contain w-[110px]"
             priority
           />
         )}
