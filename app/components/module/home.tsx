@@ -88,7 +88,7 @@ export default function HomeModule({ data }: any) {
                   className="card"
                 >
                   <Image
-                    src={urlFor(item.Icon?.asset?._ref).url()}
+                    src={urlFor(item?.Icon?.asset?._ref)?.url()}
                     alt=""
                     width={48}
                     height={48}
