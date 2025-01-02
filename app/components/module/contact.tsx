@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 export default function ContactUsModule({ links }: any) {
+  console.log("🚀 ~ ContactUsModule ~ links:", links)
   const [status, setstatus] = useState<boolean>()
 
   const handelFormSubmit = async(e: any) => {
@@ -59,7 +60,7 @@ export default function ContactUsModule({ links }: any) {
               {links?.right_nav?.map((item: any, idx: number) => (
                 <div key={idx} className="flex items-center space-x-3">
                   <Image
-                    src={urlFor(item.icon?.asset?._ref).url()}
+                    src={urlFor(item.icon?.asset?._ref)?.url()}
                     alt=""
                     width={20}
                     height={20}

@@ -1,12 +1,10 @@
-import { client } from '@/sanity/lib/client';
 import HomeModule from './components/module/home';
-import { QHomePage } from '@/sanity/lib/query';
-
 
 async function getData() {
-  const homepage = await client.fetch(QHomePage);
+  const res = await fetch(`${process.env.FRONTEND_URL}/api/homepage`, { next: { revalidate: 60 } })
+  const pageRes = await res.json()
   return {
-    homepage:homepage[0]
+    homepage:pageRes?.data[0]
   }
 }
 

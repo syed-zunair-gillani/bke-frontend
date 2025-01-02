@@ -51,9 +51,7 @@ export const Qfooter = `*[_type == "footer"]{
 }`
 
 export const Qcontact = `*[_type == "contact"]{
-  right_nav,
-   copyright_links,
-   copyright_text
+  right_nav
 }`
 
 export const QAbout = `*[_type == "about"]`

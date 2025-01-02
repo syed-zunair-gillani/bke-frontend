@@ -27,6 +27,7 @@ const cardVariants = {
 };
 
 export default function HomeModule({ data }: any) {
+  console.log("🚀 ~ HomeModule ~ data:", data?.h_feature_card?.[0]?.Icon)
   const router = useRouter();
   const { navigation } = useContent();
 
