@@ -4,7 +4,6 @@ import RelatedEquipment from '../../equipment/components/RelatedEquipment';
 import {PortableText} from '@portabletext/react'
 
 const EquipmentModule = ({data}:any) => {
-  console.log("🚀 ~ EquipmentModule ~ data:", data)
   return (
     <>
       <main className="pt-24 pb-16 bg-[#0a0c10]">

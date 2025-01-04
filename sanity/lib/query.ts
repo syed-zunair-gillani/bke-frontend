@@ -3,7 +3,15 @@ export const QHomePage = `*[_type == "home"]{
     hero_title,
     h_short_info,
     h_buttons,
-    h_feature_card,
+    h_feature_card[]{
+      title,
+      info,
+      Icon{
+        asset->{
+          url
+        }
+      }
+    },
     services[]->{
         title,
         slug,
@@ -61,6 +69,7 @@ export const QTerms = `*[_type == "terms"]`
 
 export const singleBlog = `*[ _type == "blogs" && slug.current == $slug ][0]{
      title,
+     _id,
     slug,
     excerpt,
     content,

@@ -11,6 +11,7 @@ import { useRouter } from "next/navigation";
 import { useContent } from "../../content/hooks/useContent";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
+import Link from "next/link";
 
 const cardVariants = {
   initial: { opacity: 0, y: 20 },
@@ -27,7 +28,8 @@ const cardVariants = {
 };
 
 export default function HomeModule({ data }: any) {
-  console.log("🚀 ~ HomeModule ~ data:", data?.h_feature_card?.[0]?.Icon)
+  console.log("🚀 ~ HomeModule ~ data:", data);
+
   const router = useRouter();
   const { navigation } = useContent();
 
@@ -89,7 +91,7 @@ export default function HomeModule({ data }: any) {
                   className="card"
                 >
                   <Image
-                    src={urlFor(item?.Icon?.asset?._ref)?.url()}
+                    src={item?.Icon?.asset?.url}
                     alt=""
                     width={48}
                     height={48}
@@ -137,7 +139,9 @@ export default function HomeModule({ data }: any) {
                 <p className="text-gray-400 mb-4">{item?.excerpt}</p>
                 <Button
                   variant="secondary"
-                  onClick={() => router.push(`${item?.slug?.curren}`)}
+                  onClick={() =>
+                    router.push(`/equipment/${item?.slug?.current}`)
+                  }
                 >
                   Learn More
                 </Button>
@@ -163,18 +167,22 @@ export default function HomeModule({ data }: any) {
               {data?.q_info}
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Button
-                onClick={() => router.push(`${data?.q_buttons_buttons[0]?.link}`)}
-              >
-                {data?.q_buttons[0]?.label}
-              </Button>
-              {data?.q_buttons[1] && (
+              <Link href={data?.q_buttons?.[0]?.link || ""}>
                 <Button
-                  variant="secondary"
-                  onClick={() => router.push(`${data?.q_buttons[1]?.link}`)}
+                  onClick={() => router.push(`${data?.q_buttons?.[0]?.link}`)}
                 >
-                  {data?.q_buttons[1]?.label}
+                  {data?.q_buttons[0]?.label}
                 </Button>
+              </Link>
+              {data?.q_buttons[1] && (
+                <Link href={data?.q_buttons?.[1]?.link || ""}>
+                  <Button
+                    variant="secondary"
+                    onClick={() => router.push(`${data?.q_buttons[1]?.link}`)}
+                  >
+                    {data?.q_buttons[1]?.label}
+                  </Button>
+                </Link>
               )}
             </div>
           </motion.div>

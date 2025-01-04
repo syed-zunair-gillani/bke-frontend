@@ -22,7 +22,6 @@ const SingleBlog = ({ blog }:any) => {
             <div className="flex items-center justify-between text-gray-400">
               <span>By {blog.writtenby}</span>
               <span>{formatDate(blog._createdAt)}</span>
-              
             </div>
           </div>
 
@@ -31,7 +30,7 @@ const SingleBlog = ({ blog }:any) => {
           </div>
         </article>
 
-        <CommentSection />
+        <CommentSection id={blog?._id}/>
       </div>
     </main>
   );

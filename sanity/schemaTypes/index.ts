@@ -8,7 +8,8 @@ import termsServices from './terms-services'
 import privacyPolicy from './privacy-policy'
 import { logo } from './logo'
 import contact from './contact'
+import comment from './comment'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [home, services, blogs, termsServices, privacyPolicy, about, footer, logo, contact],
+  types: [home, services, blogs, termsServices, privacyPolicy, about, footer, logo, contact, comment],
 }
