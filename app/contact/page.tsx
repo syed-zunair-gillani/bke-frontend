@@ -1,23 +1,24 @@
-import React from 'react'
-import ContactUsModule from '../components/module/contact'
-import { client } from '@/sanity/lib/client';
-import { Qcontact } from '@/sanity/lib/query';
+"use client";
+import React, { useEffect, useState } from "react";
+import ContactUsModule from "../components/module/contact";
+import { client } from "@/sanity/lib/client";
+import { Qcontact } from "@/sanity/lib/query";
 
+const Contact = () => {
+  const [links, setLinks] = useState();
 
-async function getData() {
-  const res = await client.fetch(Qcontact);
-  return {
-    links:res[0]
-  }
-}
+  useEffect(() => {
+    (async () => {
+      const res = await client.fetch(Qcontact);
+      setLinks(res?.[0]);
+    })();
+  }, []);
 
-const Contact = async () => {
-  const {links} = await getData()
   return (
     <>
-    <ContactUsModule links={links}/>
+      <ContactUsModule links={links} />
     </>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;

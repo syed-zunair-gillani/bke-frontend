@@ -1,16 +1,20 @@
+"use client"
+import { useEffect, useState } from 'react';
 import HomeModule from './components/module/home';
+import { client } from '@/sanity/lib/client';
+import { QHomePage } from '@/sanity/lib/query';
 
-async function getData() {
-  const res = await fetch(`${process.env.FRONTEND_URL}/api/homepage`, { next: { revalidate: 60 } })
-  const pageRes = await res.json()
-  return {
-    homepage:pageRes?.data[0]
-  }
-}
+export default function Home() {
+  const [homepage, setHomepage] = useState()
+  
+  useEffect(() => {
+    (async () => {
+     const res = await client.fetch(QHomePage);
+      setHomepage(res?.[0]);
+    })();
+  }, []);
 
 
-export default async function Home() {
-  const { homepage } = await getData()
   return (
     <>
       <HomeModule data={homepage}/>

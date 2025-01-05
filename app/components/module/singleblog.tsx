@@ -17,11 +17,11 @@ const SingleBlog = ({ blog }:any) => {
         <article className="card">
           <div className="mb-6">
             <h1 className="text-3xl font-bold mb-4 gradient-text">
-              {blog.title}
+              {blog?.title}
             </h1>
             <div className="flex items-center justify-between text-gray-400">
-              <span>By {blog.writtenby}</span>
-              <span>{formatDate(blog._createdAt)}</span>
+              <span>By {blog?.writtenby}</span>
+              <span>{formatDate(blog?._createdAt)}</span>
             </div>
           </div>
 

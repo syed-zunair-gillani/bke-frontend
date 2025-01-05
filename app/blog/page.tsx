@@ -1,19 +1,21 @@
+"use client";
 import { client } from "@/sanity/lib/client";
 import BlogModule from "../components/module/blogs";
 import { QAllPostQuery } from "@/sanity/lib/query";
+import { useEffect, useState } from "react";
 
-async function getData() {
-  const blogsRes = await client.fetch(QAllPostQuery);
-  return {
-    blogs:blogsRes
-  }
-}
+export default function Blog() {
+  const [blogs, setBlogs] = useState();
 
-export default async function Blog() {
-  const {blogs} = await getData()
+  useEffect(() => {
+    (async () => {
+      const blogsRes = await client.fetch(QAllPostQuery);
+      setBlogs(blogsRes);
+    })();
+  }, []);
   return (
     <>
-      <BlogModule data={blogs}/>
+      <BlogModule data={blogs} />
     </>
   );
 }

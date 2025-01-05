@@ -60,15 +60,15 @@ export default function HomeModule({ data }: any) {
             transition={{ delay: 0.4 }}
             className="space-x-4"
           >
-            <Button onClick={() => router.push(`${data?.h_buttons[0]?.link}`)}>
-              {data?.h_buttons[0]?.label}
+            <Button onClick={() => router.push(`${data?.h_buttons?.[0]?.link}`)}>
+              {data?.h_buttons?.[0]?.label}
             </Button>
-            {data?.h_buttons[1] && (
+            {data?.h_buttons?.[1] && (
               <Button
                 variant="secondary"
-                onClick={() => router.push(`${data?.h_buttons[1]?.link}`)}
+                onClick={() => router.push(`${data?.h_buttons?.[1]?.link}`)}
               >
-                {data?.h_buttons[1]?.label}
+                {data?.h_buttons?.[1]?.label}
               </Button>
             )}
           </motion.div>
@@ -171,16 +171,16 @@ export default function HomeModule({ data }: any) {
                 <Button
                   onClick={() => router.push(`${data?.q_buttons?.[0]?.link}`)}
                 >
-                  {data?.q_buttons[0]?.label}
+                  {data?.q_buttons?.[0]?.label}
                 </Button>
               </Link>
-              {data?.q_buttons[1] && (
+              {data?.q_buttons?.[1] && (
                 <Link href={data?.q_buttons?.[1]?.link || ""}>
                   <Button
                     variant="secondary"
-                    onClick={() => router.push(`${data?.q_buttons[1]?.link}`)}
+                    onClick={() => router.push(`${data?.q_buttons?.[1]?.link}`)}
                   >
-                    {data?.q_buttons[1]?.label}
+                    {data?.q_buttons?.[1]?.label}
                   </Button>
                 </Link>
               )}

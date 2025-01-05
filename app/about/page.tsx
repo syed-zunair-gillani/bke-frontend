@@ -1,19 +1,22 @@
-import { client } from '@/sanity/lib/client';
-import AboutModule from '../components/module/about';
-import { QAbout } from '@/sanity/lib/query';
+"use client";
+import { client } from "@/sanity/lib/client";
+import AboutModule from "../components/module/about";
+import { QAbout } from "@/sanity/lib/query";
+import { useEffect, useState } from "react";
 
-async function getData() {
-  const aboutRes = await client.fetch(QAbout);
-  return {
-    about:aboutRes[0]
-  }
-}
+export default function About() {
+  const [about, setAbout] = useState();
 
-export default async function About() {
-  const { about } = await getData()
+  useEffect(() => {
+    (async () => {
+      const aboutRes = await client.fetch(QAbout);
+      setAbout(aboutRes?.[0]);
+    })();
+  }, []);
+
   return (
     <>
-      <AboutModule data={about}/>
+      <AboutModule data={about} />
     </>
   );
 }
