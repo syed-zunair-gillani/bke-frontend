@@ -48,10 +48,9 @@ export default function CommentSection({id}:any) {
     (async()=>{
       const comments = await client.fetch(`*[ _type == "comment"]`);
       const filterComment = comments?.filter((item:any)=>item?.blog?._ref === id)
-      console.log("🚀 ~ filterComment:", filterComment)
       setComments(filterComment)
     })()
-  },[])
+  },[comments])
 
 
   function formatTimestampToDate(timestamp:any) {
@@ -107,9 +106,9 @@ export default function CommentSection({id}:any) {
         {comments.length === 0 ? (
           <p className="text-gray-400 text-center">No comments yet. Be the first to comment!</p>
         ) : (
-          comments.map((comment) => (
+          comments.map((comment, idx) => (
             <motion.div
-              key={comment.id}
+              key={idx}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               className="card"
