@@ -7,7 +7,6 @@ import Link from "next/link";
 import { useState } from "react";
 
 export default function ContactUsModule({ links }: any) {
-  console.log("🚀 ~ ContactUsModule ~ links:", links)
   const [status, setstatus] = useState<boolean>()
 
   const handelFormSubmit = async(e: any) => {
@@ -25,6 +24,7 @@ export default function ContactUsModule({ links }: any) {
       body: JSON.stringify(data),
     });
     const email = await rawResponse.json();
+    console.log("🚀 ~ handelFormSubmit ~ email:", email)
     if (email.status === "ok") {
       setstatus(true);
       form.reset();
