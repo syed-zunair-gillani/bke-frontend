@@ -17,7 +17,7 @@ export async function POST(req) {
     try {
         await transporter.sendMail({
             from: process.env.NEXT_PUBLIC_EMAIL,
-            to: "zunairgillani54@gmail.com",
+            to: process.env.NEXT_PUBLIC_EMAIL,
             subject: `Contact Email`,
             html: `
                 <p><strong>Contact Name: </strong>${contactName}</p>
